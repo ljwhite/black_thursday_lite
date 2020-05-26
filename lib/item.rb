@@ -1,0 +1,1 @@
+Item = Struct.new(:attrs)
