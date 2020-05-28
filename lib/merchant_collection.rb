@@ -1,19 +1,15 @@
 require '../lib/merchant'
 
-MerchantCollection = Struct.new :merchants_path
-
 class MerchantCollection
-  def merchant_collection
-    merchants_data.map {|item| Merchant.new(item)}
+  attr_reader :merchants
+
+  def initialize(merchants)
+    @merchants = merchants
   end
 
-  private
-
-  def merchants_data
-    data = []
-    CSV.foreach(merchants_path, headers: true, header_converters: :symbol) do |row|
-      data << Hash[row]
+  def call
+    merchants.map do |merchant|
+      Merchant.new(merchant)
     end
-    data
   end
 end

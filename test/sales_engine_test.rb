@@ -15,7 +15,7 @@ class SalesEngineTest < Minitest::Test
       :items     => "/Users/litowhite/turing/mod1/projects/black_thursday_lite/test/fixtures/sample_item.csv",
       :merchants => "/Users/litowhite/turing/mod1/projects/black_thursday_lite/test/fixtures/sample_merchant.csv",
     })
-    @item1 = Item.new({
+    @item_collection = ItemCollection.new([Item.new({
       :id          => "1",
       :name        => "Pencil",
       :description => "You can use it to write things",
@@ -23,13 +23,19 @@ class SalesEngineTest < Minitest::Test
       :merchant_id => "2",
       :created_at  => "2016-01-11 11:51:37 UTC",
       :updated_at  => "2008-04-02 13:48:57 UTC"
-    })
+    })])
 
-    @merchant1 = Merchant.new({:id => 1, :name => "Turing School"})
+    @merchant_collection = MerchantCollection.new([Merchant.new({
+      :id => "1",
+      :name => "Turing School",
+      :created_at=>"2016-01-11 11:51:37 UTC",
+      :updated_at=>"2008-04-02 13:48:57 UTC"
+      })])
   end
 
   def test_it_has_readable_attributes
-    assert_equal @sales_engine.item_collection.first, @item1
-    assert_equal @sales_engine.merchant_collection.first, @merchant1
+   #binding.pry
+    assert_equal @sales_engine.item_collection, @item_collection
+    assert_equal @sales_engine.merchant_collection, @merchant_collection
   end
 end

@@ -1,20 +1,15 @@
 require '../lib/item'
 
-ItemCollection = Struct.new :items_path
-
 class ItemCollection
+  attr_reader :items
 
-  def item_collection
-    items_data.map {|item| Item.new(item)}
+  def initialize(items)
+    @items = items
   end
 
-  private
-
-  def items_data
-    data = []
-    CSV.foreach(items_path, headers: true, header_converters: :symbol) do |row|
-      data << Hash[row]
+  def call
+    items.map do |item|
+      Item.new(item)
     end
-    data
   end
 end
