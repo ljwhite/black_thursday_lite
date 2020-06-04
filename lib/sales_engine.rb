@@ -15,11 +15,11 @@ class SalesEngine
   end
 
   def item_collection
-    ItemCollection.new(items).call
+    ItemCollection.new(items).all
   end
 
   def merchant_collection
-    MerchantCollection.new(merchants).call
+    MerchantCollection.new(merchants).all
   end
 
   private

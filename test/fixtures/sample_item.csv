@@ -1,2 +1,4 @@
 id,name,description,unit_price,merchant_id,created_at,updated_at
 1,Pencil,"You can use it to write things",1099,2,2016-01-11 11:51:37 UTC,2008-04-02 13:48:57 UTC
+2,Pen,"You can use it to write things",1098,3,2016-01-11 11:51:37 UTC,2008-04-02 13:48:57 UTC
+3,Eraser,"You can use it to write things",1099,4,2016-01-11 11:51:37 UTC,2008-04-02 13:48:57 UTC

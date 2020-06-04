@@ -15,7 +15,8 @@ class SalesEngineTest < Minitest::Test
       :items     => "/Users/litowhite/turing/mod1/projects/black_thursday_lite/test/fixtures/sample_item.csv",
       :merchants => "/Users/litowhite/turing/mod1/projects/black_thursday_lite/test/fixtures/sample_merchant.csv",
     })
-    @item_collection = ItemCollection.new([Item.new({
+
+    @item_sample = {
       :id          => "1",
       :name        => "Pencil",
       :description => "You can use it to write things",
@@ -23,14 +24,15 @@ class SalesEngineTest < Minitest::Test
       :merchant_id => "2",
       :created_at  => "2016-01-11 11:51:37 UTC",
       :updated_at  => "2008-04-02 13:48:57 UTC"
-    })])
-
-    @merchant_collection = MerchantCollection.new([Merchant.new({
+    }
+    @item_collection = ItemCollection.new([@item_sample]).all
+    @merchant_sample = {
       :id => "1",
       :name => "Turing School",
       :created_at=>"2016-01-11 11:51:37 UTC",
       :updated_at=>"2008-04-02 13:48:57 UTC"
-      })])
+      }
+    @merchant_collection = MerchantCollection.new([@merchant_sample]).all
   end
 
   def test_it_has_readable_attributes
